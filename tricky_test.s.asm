@@ -12,7 +12,9 @@ CLEAR 0, LOAD_ADDR
 GUARD LOAD_ADDR
 ORG &1100
 .start
+.decomp_start
     INCLUDE ".\lib\tricky.s.asm"
+.decomp_end
 
 .entry_point
 
@@ -32,7 +34,7 @@ ORG &1100
     sta decompress_dst + 1
 
     jsr decompress
-    
+
     jmp *
     
 .comp_data
@@ -49,11 +51,13 @@ SAVE "TRICKY", start, end, entry_point
 PRINT "------------------------"
 PRINT " Tricky's Decompressor  "
 PRINT "------------------------"
-PRINT "CODE size      = ", ~end-start
+PRINT "CODE SIZE         = ", ~end-start
+PRINT "DECOMPRESSOR SIZE = ", decomp_end-decomp_start, "bytes"
+PRINT "ZERO PAGE SIZE    = ", zp_end-zp_start, "bytes"
 PRINT "------------------------"
-PRINT "LOAD ADDR      = ", ~start
-PRINT "HIGH WATERMARK = ", ~P%
-PRINT "RAM BYTES FREE = ", ~LOAD_ADDR-P%
+PRINT "LOAD ADDR         = ", ~start
+PRINT "HIGH WATERMARK    = ", ~P%
+PRINT "RAM BYTES FREE    = ", ~LOAD_ADDR-P%
 PRINT "------------------------"
 
 PUTBASIC "loader.bas","LOADER"

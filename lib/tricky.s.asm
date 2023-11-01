@@ -1,4 +1,3 @@
-
 ; There is a commented out INC after .done, that is only useful if you have more than 2 consecutive compressed blocks.
 ; Adding the final INC would increase the size of this code from 72 (+ RTS) bytes to 78, 79 including the RTS.
 ; The code could be prefixed with stx/sty to either src or dst, if that is used multiple times.
@@ -68,12 +67,12 @@
 
 ; on exit X=A=0
 
-{
-	inc decompress_src  ; INC src to after terminating 0, see note in compress.asm
-	bne pg
-	inc decompress_src+1
-.pg
-}
+;{
+;	inc decompress_src  ; INC src to after terminating 0, see note in compress.asm
+;	bne pg
+;	inc decompress_src+1
+;.pg
+;}
 
 	RTS                 ; must add an RTS
 }
