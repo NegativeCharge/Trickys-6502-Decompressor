@@ -52,7 +52,7 @@ PRINT "------------------------"
 PRINT " Tricky's Decompressor  "
 PRINT "------------------------"
 PRINT "CODE SIZE         = ", ~end-start
-PRINT "DECOMPRESSOR SIZE = ", decomp_end-decomp_start, "bytes"
+PRINT "DECOMPRESSOR SIZE = ", entry_point-start, "bytes"
 PRINT "ZERO PAGE SIZE    = ", zp_end-zp_start, "bytes"
 PRINT "------------------------"
 PRINT "LOAD ADDR         = ", ~start
