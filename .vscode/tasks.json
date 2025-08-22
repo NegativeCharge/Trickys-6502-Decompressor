@@ -7,7 +7,7 @@
     ],
     "tasks": [
         {
-            "label": "zx02.dsd",
+            "label": "tricky_test.ssd",
             "type": "shell",
             "args": [
                 "make.bat"
